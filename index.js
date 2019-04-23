@@ -70,7 +70,7 @@ server.delete('/api/posts/:id', (req, res) => {
 
 server.put('/api/posts/:id', (req, res) => {
     const updateId = req.params.id
-    if (!updateId.title || !updateId.contents) {
+    if (!req.body.title || !req.body.contents) {
         res.status(400).json({ errorMessage: "Please provide title and contents for the post." })
     }
     db
